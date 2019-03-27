@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PlacesExample</string>
+    <string name="loading_dialog_title">Loading</string>
+
+    <string name="title_location_permission_dialog">Location Permission</string>
+    <string name="message_location_permission_dialog">We need to ask for your device\'s location permission to be able to load nearby places.</string>
+    <string name="label_ok">OK</string>
+</resources>
