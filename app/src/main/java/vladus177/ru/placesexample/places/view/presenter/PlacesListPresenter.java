@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import vladus177.ru.placesexample.core.BasePresenter;
-import vladus177.ru.placesexample.places.data.repository.PlacesMapper;
+import vladus177.ru.placesexample.places.data.repository.datasource.mapper.PlacesMapper;
 import vladus177.ru.placesexample.places.domain.usecase.GetPlacesUseCase;
 import vladus177.ru.placesexample.places.view.viewmodel.PlacesView;
 

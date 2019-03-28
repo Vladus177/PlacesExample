@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -111,7 +112,7 @@ public class PlacesListFragment extends BaseFragment implements PlacesListContra
     protected void onInjection() {
         DaggerPlacesComponent.builder()
                 .appComponent(App.getApplicationComponent())
-                .placesModule(new PlacesModule())
+                .placesModule(new PlacesModule((AppCompatActivity) getActivity()))
                 .build()
                 .inject(this);
     }

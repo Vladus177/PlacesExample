@@ -13,6 +13,8 @@ project.ext {
     runnerVersion = "1.0.2"
     espressoVersion = "3.0.2"
     junitVersion = "4.12"
+    retrofitVersion = "2.3.0"
+    okhttpVersion = "3.9.1"
 }
 
 android {
@@ -47,6 +49,14 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$project.constraintVersion"
     implementation "com.android.support:recyclerview-v7:$project.supportLibraryVersion"
     implementation "com.google.android.gms:play-services-places:$project.placesVersion"
+
+    //Net
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$project.okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp:$project.okhttpVersion"
     // Butter knife
     implementation "com.jakewharton:butterknife:$project.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$project.butterKnifeVersion"

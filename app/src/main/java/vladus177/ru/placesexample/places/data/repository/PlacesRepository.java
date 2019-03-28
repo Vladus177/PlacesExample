@@ -1,36 +1,17 @@
 package vladus177.ru.placesexample.places.data.repository;
 
-import android.content.Context;
-
-import javax.inject.Inject;
+import java.util.List;
 
 import io.reactivex.Observable;
 import vladus177.ru.placesexample.places.domain.model.PlaceDetailModel;
 import vladus177.ru.placesexample.places.domain.model.PlacePhotoModel;
 import vladus177.ru.placesexample.places.domain.model.PlacesModel;
 
-public class PlacesRepository
-        implements GetPlacesRepository {
+public interface PlacesRepository {
 
-    @Inject
-    public PlacesRepository(Context context) {
-        this.context = context;
-    }
+    Observable<List<PlacesModel>> getPlacesEntities(String string);
 
-    private Context context;
+    Observable<PlaceDetailModel> getPlaceDetail(String string);
 
-    @Override
-    public Observable<PlacesModel> getPlacesList(String string) {
-        return null;
-    }
-
-    @Override
-    public Observable<PlaceDetailModel> getPlaceDetail(String string) {
-        return null;
-    }
-
-    @Override
-    public Observable<PlacePhotoModel> getPlacePhoto(String string) {
-        return null;
-    }
+    Observable<PlacePhotoModel> getPlacePhoto(String string);
 }
