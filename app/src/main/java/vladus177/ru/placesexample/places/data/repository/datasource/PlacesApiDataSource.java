@@ -1,11 +1,11 @@
 package vladus177.ru.placesexample.places.data.repository.datasource;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import vladus177.ru.placesexample.places.data.entity.PlacesEntity;
+import vladus177.ru.placesexample.places.data.entity.PlacesRequestEntity;
 import vladus177.ru.placesexample.places.data.net.PlacesRestApi;
 
 public class PlacesApiDataSource implements PlacesDataSource {
@@ -18,7 +18,7 @@ public class PlacesApiDataSource implements PlacesDataSource {
     }
 
     @Override
-    public Observable<List<PlacesEntity>> getPlacesEntities() {
-        return placesRestApi.getPlacesEntities();
+    public Observable<PlacesEntity> getPlacesEntities(PlacesRequestEntity requestEntity) {
+        return placesRestApi.getPlacesEntities(requestEntity);
     }
 }

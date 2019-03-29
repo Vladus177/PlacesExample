@@ -6,9 +6,6 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-
-import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -31,6 +28,7 @@ public class PlacesListFragment extends BaseFragment implements PlacesListContra
     LoadingDialogFragment loadingDialogFragment;
 
     private static final int REQUEST_CODE_CHECK_LOCATION_PERMISSION = 11;
+    PlacesView placesView;
 
     @Override
     protected int getLayoutId() {
@@ -40,18 +38,20 @@ public class PlacesListFragment extends BaseFragment implements PlacesListContra
     @Override
     protected void onPreparePresenter() {
         attachPresenter(presenter, this);
+        presenter.getPlacesFromRemoteRepository();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        presenter.checkLocationPermission();
+        //presenter.checkLocationPermission();
     }
 
 
     @Override
-    public void setPlaces(ArrayList<PlacesView> places) {
-
+    public void setPlaces(PlacesView places) {
+        showToast("OK");
+        this.placesView = places;
     }
 
     @Override //Todo check if location permission needed to make requests for Places Api
@@ -112,7 +112,7 @@ public class PlacesListFragment extends BaseFragment implements PlacesListContra
     protected void onInjection() {
         DaggerPlacesComponent.builder()
                 .appComponent(App.getApplicationComponent())
-                .placesModule(new PlacesModule((AppCompatActivity) getActivity()))
+                .placesModule(new PlacesModule())
                 .build()
                 .inject(this);
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.net.SocketFactory;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -30,12 +29,10 @@ public abstract class ApiClient<T> {
 
     private OkHttpClient initRetrofit() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
-        okHttpBuilder.socketFactory(SocketFactory.getDefault());
-        okHttpBuilder.readTimeout(60, TimeUnit.SECONDS);
-        okHttpBuilder.connectTimeout(60, TimeUnit.SECONDS);
-        okHttpBuilder.writeTimeout(60, TimeUnit.SECONDS);
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
+        okHttpBuilder.readTimeout(60, TimeUnit.SECONDS);
+        okHttpBuilder.writeTimeout(60, TimeUnit.SECONDS);
         okHttpBuilder.addInterceptor(httpLoggingInterceptor);
         return okHttpBuilder.build();
     }
