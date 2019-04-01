@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="vladus177.ru.placesexample">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:name="vladus177.ru.placesexample.App"
         android:allowBackup="false"

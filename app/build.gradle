@@ -47,8 +47,10 @@ dependencies {
     //noinspection GradleCompatible
     implementation "com.android.support:appcompat-v7:$project.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$project.constraintVersion"
+    implementation "com.android.support:cardview-v7:$project.supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$project.supportLibraryVersion"
     implementation "com.google.android.gms:play-services-places:$project.placesVersion"
+    implementation "com.google.android.gms:play-services-location:$project.placesVersion"
 
     //Net
     implementation "com.squareup.retrofit2:retrofit:$project.retrofitVersion"

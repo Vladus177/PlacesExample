@@ -2,6 +2,12 @@ package vladus177.ru.placesexample.places.di;
 
 import android.content.Context;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+
+
 import dagger.Module;
 import dagger.Provides;
 import vladus177.ru.placesexample.common.view.LoadingDialogFragment;
@@ -30,6 +36,24 @@ public class PlacesModule {
     @Provides
     PlacesListPresenter providePlacesPresenter(GetPlacesUseCase getPlacesUseCase, PlacesModelToViewMapper placesModelToViewMapper, Context context) {
         return new PlacesListPresenter(getPlacesUseCase, placesModelToViewMapper, context);
+    }
+
+    @Provides
+    FusedLocationProviderClient provideLocationListener(Context context) {
+        return LocationServices.getFusedLocationProviderClient(context);
+
+    }
+
+    @Provides
+    GoogleApiClient provideGoogleApiClient(Context context) {
+        return new GoogleApiClient.Builder(context)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    @Provides
+    LocationRequest provideLocationRequest() {
+        return new LocationRequest();
     }
 
     @Provides

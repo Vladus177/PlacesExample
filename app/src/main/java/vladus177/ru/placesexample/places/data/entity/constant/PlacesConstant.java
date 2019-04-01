@@ -19,6 +19,7 @@ public class PlacesConstant {
     public final static String PARAM_PLACE_ID = "place_id";
     public final static String PARAM_RATING = "rating";
     public final static String PARAM_USER_RATING_TOTAL = "user_ratings_total";
+    public final static String PARAM_PRICE_LEVEL = "price_level";
     public final static String PARAM_VICINITY = "vicinity";
     public final static String PARAM_RADIUS = "radius";
     public final static String PARAM_TYPE = "type";

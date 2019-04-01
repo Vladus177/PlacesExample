@@ -10,6 +10,9 @@ public abstract class UseCaseParameters<T, P> extends BaseUseCase {
     public void execute(DisposableObserver<T> disposableObserver, P parameters) {
         final Observable<T> observable = buildUseCase(parameters).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
+
+        DisposableObserver observer = observable.subscribeWith(disposableObserver);
+        compositeDisposable.add(observer);
     }
 
     protected abstract Observable<T> buildUseCase(P params);

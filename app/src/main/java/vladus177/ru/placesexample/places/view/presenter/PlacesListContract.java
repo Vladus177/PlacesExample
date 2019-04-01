@@ -17,13 +17,13 @@ public interface PlacesListContract {
 
     interface Presenter {
 
-        void getPlacesFromRemoteRepository();
-
         void getPlaceDetail();
 
         void getPlacePhoto();
 
-        void checkLocationPermission();
+        void setUserLocationAndRequestPlaces(double lat, double lng);
+
+        boolean checkLocationPermission();
 
     }
 }

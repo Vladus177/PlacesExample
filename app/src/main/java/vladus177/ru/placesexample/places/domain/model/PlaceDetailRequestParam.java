@@ -1,4 +1,4 @@
 package vladus177.ru.placesexample.places.domain.model;
 
-public class PlacePhotoRequestModel {
+public class PlaceDetailRequestParam {
 }
